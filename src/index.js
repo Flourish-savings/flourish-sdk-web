@@ -7,7 +7,7 @@ export const signIn = async (access_token, environment) => {
   return response.isValid;
 };
 
-export const Flourish = ({ token, language, environment, version, genericEventCallback }) => {
+export const Flourish = ({ token, language, environment, genericEventCallback }) => {
   handleGenericEvent(data => {
     if (genericEventCallback) {
       genericEventCallback(data);
@@ -17,7 +17,6 @@ export const Flourish = ({ token, language, environment, version, genericEventCa
   const { iframe, removeListeners } = HomePage({
     token,
     environment,
-    version,
     language
   });
 
