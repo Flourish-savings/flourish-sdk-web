@@ -20,8 +20,8 @@ const Config = {
   FLOURISH_SDK_APP_VERSION
 };
 
-export const buildFrontEndUrl = (environment, version) => {
-  return Config.FRONTEND_URL.get(`${environment}_${version}`);
+export const buildFrontEndUrl = (environment) => {
+  return Config.FRONTEND_URL.get(`${environment}`);
 }
 
 export const buildBackEndUrl = (environment) => {

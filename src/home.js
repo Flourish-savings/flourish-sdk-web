@@ -1,8 +1,8 @@
 import { buildFrontEndUrl, getSdkVersion } from './config';
 import emitEvent from './events/eventEmitter';
 
-export const HomePage = ({ token, environment, version, language }) => {
-  const baseURL = buildFrontEndUrl(environment, version);
+export const HomePage = ({ token, environment, language }) => {
+  const baseURL = buildFrontEndUrl(environment);
   const sdk_version = getSdkVersion(environment);
 
   const completeURL = language
@@ -36,12 +36,3 @@ export const HomePage = ({ token, environment, version, language }) => {
 
   return { iframe, removeListeners };
 };
-
-const { iframe, removeListeners } = createHomePage({
-  token: 'yourToken',
-  environment: 'staging',
-  version: 'v1',
-  language: 'en'
-});
-
-document.getElementById('app').appendChild(iframe);
