@@ -1,4 +1,4 @@
-import { buildBackEndUrl, getSdkVersion } from '../config';
+import { buildBackEndUrl, getSdkVersion } from './config';
 
 export const api = {
   signIn: async (access_token, environment) => {

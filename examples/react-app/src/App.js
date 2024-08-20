@@ -1,13 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef} from 'react';
 import './App.css';
-import FlourishWrapper from './flourishWrapper';
-
+import { Flourish } from 'flourish-sdk-web';
 
 function App() {
-  const [accessToken, setAccessToken] = useState(null);
+  const flourishRef = useRef(null);
 
   useEffect(() => {
-    setAccessToken("FLOURISH_TOKEN_HERE");
+    const flourishComponent = Flourish(
+      'TOKEN_HERE',
+      'en',
+      'staging'
+    );
+
+    if (flourishRef.current) {
+      flourishRef.current.appendChild(flourishComponent);
+    }
+
+    return () => {
+      if (flourishRef.current) {
+        flourishRef.current.removeChild(flourishComponent);
+      }
+    };
   }, []);
 
   const genericEventCallback = (eventData) => {
@@ -15,15 +28,10 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <h1>Flourish SDK Integration</h1>
-      <FlourishWrapper
-        token={accessToken}
-        environment="staging"
-        language="en"
-        onGenericEvent={genericEventCallback}
-      />
-    </div>
+    <div
+      ref={flourishRef}
+      style={{ width: '100vw', height: '100vh' }}
+    ></div>
   );
 }
 

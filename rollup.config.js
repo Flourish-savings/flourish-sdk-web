@@ -5,19 +5,15 @@ export default {
   input: 'src/index.js',
   output: [
     {
-      file: 'dist/index.umd.js',
-      format: 'umd',
-      name: 'Flourish-SDK-Web',
-      sourcemap: true,
-    },
-    {
-      file: 'dist/index.esm.js',
-      format: 'esm',
-      sourcemap: true,
-    },
-    {
-      file: 'dist/index.cjs.js',
+      file: 'dist/cjs/index.js',
       format: 'cjs',
+      exports: 'named',
+      sourcemap: true,
+    },
+    {
+      file: 'dist/esm/index.js',
+      format: 'esm',
+      exports: 'named',
       sourcemap: true,
     },
   ],
@@ -26,6 +22,5 @@ export default {
       exclude: 'node_modules/**',
       presets: ['@babel/preset-env'],
     }),
-    terser(),
   ],
 };
