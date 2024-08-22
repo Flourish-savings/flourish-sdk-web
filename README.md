@@ -92,6 +92,121 @@ export default App;
 ```
 
 
+### Basic Integration (Angular Integration)
+The SDK can also be used within a Angular application:
+
+```javascript
+import { Component, ElementRef, Input, OnInit } from '@angular/core';
+import { Flourish } from 'flourish-sdk-web';
+
+@Component({
+  selector: 'app-flourish',
+  standalone: true,
+  templateUrl: './flourish.component.html',
+  styleUrl: './flourish.component.css'
+})
+export class FlourishComponent implements OnInit {
+
+  @Input() token!: string;
+  @Input() language: string = 'en';
+  @Input() environment!: string;
+
+  constructor(private elementRef: ElementRef) {}
+
+  ngOnInit(): void {
+    // Initialize the Flourish SDK and append the iframe to the container
+    const flourishIframe = Flourish(this.token, this.language, this.environment, this.handleGenericEvent);
+    this.elementRef.nativeElement.querySelector('.flourish-container').appendChild(flourishIframe);
+  }
+
+  handleGenericEvent(data: any): void {
+    console.log('Generic event received:', data);
+  }
+
+}
+
+```
+
+### Basic Integration (Vue Integration)
+The SDK can also be used within a Vue.js application:
+
+```javascript
+<template>
+    <div class="flourish-container" ref="flourishContainer"></div>
+  </template>
+  
+  <script>
+  import { Flourish } from 'flourish-sdk-web';
+  
+  export default {
+    name: 'FlourishComponent',
+    props: {
+      token: {
+        type: String,
+        required: true
+      },
+      language: {
+        type: String,
+        default: 'en'
+      },
+      environment: {
+        type: String,
+        required: true
+      }
+    },
+    mounted() {
+      // Initialize the Flourish SDK and append the iframe to the container
+      const flourishApp = Flourish(this.token, this.language, this.environment, this.handleGenericEvent);
+      this.$refs.flourishContainer.appendChild(flourishApp);
+    },
+    methods: {
+      handleGenericEvent(data) {
+        console.log('Generic event received:', data);
+      }
+    }
+  };
+  </script>
+  
+  <style scoped>
+  .flourish-container {
+    width: 100%;
+    height: 100vh;
+  }
+  </style>
+
+```
+
+
+
+### Basic Integration (Capacitor Integration)
+The SDK can also be used within a Capacitor application:
+
+```javascript
+import { Flourish } from 'flourish-sdk-web';
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const token = 'FLOURISH_TOKEN_HERE';
+  const language = 'en';
+  const environment = 'staging';
+
+  // Generic event callback
+  const onGenericEvent = (data) => {
+    console.log('Generic event received:', data);
+  };
+
+  // Initialize the Flourish SDK
+  const flourishIframe = Flourish(token, language, environment, onGenericEvent);
+
+  // Append the iframe to the container in index.html
+  const appContainer = document.getElementById('app');
+  if (appContainer) {
+    appContainer.appendChild(flourishIframe);
+  }
+});
+
+```
+
 ---
 ### Step 4: Listening events
 
