@@ -8,8 +8,8 @@ BACKEND_API_URL.set('production', 'https://api.flourishfi.com/api/v1');
 FRONTEND_URL.set('staging', 'https://platform-stg.flourishfi.com');
 FRONTEND_URL.set('production', 'https://platform.flourishfi.com');
 
-FLOURISH_SDK_APP_VERSION.set('staging', '1.0.0');
-FLOURISH_SDK_APP_VERSION.set('production', '1.0.0');
+FLOURISH_SDK_APP_VERSION.set('staging', '1.0.2');
+FLOURISH_SDK_APP_VERSION.set('production', '1.0.2');
 
 const Config = {
   BACKEND_API_URL,

@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Generic event callback
   const onGenericEvent = (data) => {
-    console.log('Generic event received:', data);
+    console.log('Generic event received in Capacitor Example:', data);
   };
 
   // Initialize the Flourish SDK
