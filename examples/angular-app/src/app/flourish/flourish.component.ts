@@ -22,7 +22,7 @@ export class FlourishComponent implements OnInit {
   }
 
   handleGenericEvent(data: any): void {
-    console.log('Generic event received:', data);
+    console.log('Generic event received in Angular Example:', data);
   }
 
 }

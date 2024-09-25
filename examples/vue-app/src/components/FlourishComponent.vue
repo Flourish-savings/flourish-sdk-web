@@ -28,7 +28,7 @@
     },
     methods: {
       handleGenericEvent(data) {
-        console.log('Generic event received:', data);
+        console.log('Generic event received in Vue Example:', data);
       }
     }
   };

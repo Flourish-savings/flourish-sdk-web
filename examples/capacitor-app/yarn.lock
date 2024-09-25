@@ -451,6 +451,11 @@ fd-slicer@~1.1.0:
   dependencies:
     pend "~1.2.0"
 
+flourish-sdk-web@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/flourish-sdk-web/-/flourish-sdk-web-1.0.2.tgz#a24eb264c240950221cbfdcbef7cf9760e567bea"
+  integrity sha512-cODoLnihakczei8OXcfDTFqwjl5E0K6W+EQ0NtlXdzuLjkAazDzppZJJFrGjjavkskbh7h++kC2UITClZK5obA==
+
 fs-extra@^9.0.0:
   version "9.1.0"
   resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-9.1.0.tgz#5954460c764a8da2094ba3554bf839e6b9a7c86d"

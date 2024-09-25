@@ -15,17 +15,26 @@ export function Flourish(token, language, environment, genericEventCallback) {
     ? `${baseURL}?token=${token}&lang=${language}&sdk_version=${sdk_version}`
     : `${baseURL}?token=${token}&sdk_version=${sdk_version}`;
 
-  handleGenericEvent(data => {
-    if (genericEventCallback) {
-      genericEventCallback(data);
+  if (typeof window !== 'undefined') {
+    if (!window.customEmitFunction) {
+      window.customEmitFunction = function customEmitFunction(ev) {
+        genericEventCallback(ev.data);
+      };
     }
-  });
 
-  const iframe = document.createElement('iframe');
-  iframe.src = completeURL;
-  iframe.style.width = '100%';
-  iframe.style.height = '100%';
-  iframe.style.border = 'none';
+    window.removeEventListener('message', window.customEmitFunction);
+    window.addEventListener('message', window.customEmitFunction, false);
+  }
+
+  let iframe ;
+  if (typeof document !== 'undefined') {
+    iframe = document.createElement('iframe');
+    iframe.src = completeURL;
+    iframe.style.width = '100%';
+    iframe.style.height = '100%';
+    iframe.style.border = 'none';
+  }
+
 
   return iframe;
 }

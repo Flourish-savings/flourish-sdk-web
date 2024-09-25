@@ -6,10 +6,15 @@ function App() {
   const flourishRef = useRef(null);
 
   useEffect(() => {
+    const genericEventCallback = (eventData) => {
+      console.log('Generic event received in React Example:', eventData);
+    };
+
     const flourishComponent = Flourish(
       'TOKEN_HERE',
       'en',
-      'staging'
+      'staging',
+      genericEventCallback
     );
 
     if (flourishRef.current) {
@@ -22,10 +27,6 @@ function App() {
       }
     };
   }, []);
-
-  const genericEventCallback = (eventData) => {
-    console.log('Generic event data', eventData);
-  };
 
   return (
     <div

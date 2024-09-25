@@ -13,9 +13,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@capacitor/core": "latest",
     "@capacitor/camera": "latest",
-    "@capacitor/splash-screen": "latest"
+    "@capacitor/core": "latest",
+    "@capacitor/splash-screen": "latest",
+    "flourish-sdk-web": "^1.0.2"
   },
   "devDependencies": {
     "@capacitor/cli": "latest",
