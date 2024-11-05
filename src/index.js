@@ -33,6 +33,10 @@ export function Flourish(token, language, environment, genericEventCallback) {
     iframe.style.width = '100%';
     iframe.style.height = '100%';
     iframe.style.border = 'none';
+    iframe.style.position = 'relative';
+    iframe.style.overflow = 'hidden';
+    iframe.style.paddingTop = 'env(safe-area-inset-top)';
+    iframe.style.paddingBottom = 'env(safe-area-inset-bottom)';
   }
 
 
